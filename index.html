@@ -338,9 +338,53 @@
     .hero { padding: 36px 16px 32px; }
   }
 
+  /* ── MENU SLIDER ── */
+  .menu-label { font-size: 12px; font-weight: 800; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 8px; }
+  .menu-slider {
+    position: relative; border-radius: 12px; overflow: hidden;
+    border: 1px solid var(--line); margin-bottom: 6px; background: #e8e0d4;
+  }
+  .menu-slides {
+    display: flex; transition: transform .3s ease;
+  }
+  .menu-slide {
+    min-width: 100%; position: relative;
+    min-height: 220px; display: flex; align-items: center; justify-content: center;
+  }
+  .menu-slide img { width: 100%; max-height: 320px; object-fit: contain; display: block; background: #fff; }
+  .slide-ph {
+    width: 100%; min-height: 220px;
+    flex-direction: column; align-items: center; justify-content: center; text-align: center;
+    padding: 24px; gap: 6px;
+  }
+  .slide-ph .ph-icon { font-size: 36px; }
+  .slide-ph .ph-text { font-size: 13px; color: var(--muted); font-weight: 600; }
+  .slide-btn {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    background: rgba(44,36,22,.55); color: #fff; border: 0;
+    width: 36px; height: 36px; border-radius: 50%; font-size: 22px; line-height: 1;
+    cursor: pointer; display: flex; align-items: center; justify-content: center;
+    transition: background .15s; z-index: 5;
+  }
+  .slide-btn:hover { background: rgba(44,36,22,.82); }
+  .slide-prev { left: 10px; }
+  .slide-next { right: 10px; }
+  .slide-dots {
+    position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%);
+    display: flex; gap: 6px; z-index: 5;
+  }
+  .slide-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: rgba(255,255,255,.5); cursor: pointer; transition: background .15s;
+  }
+  .slide-dot.active { background: #fff; }
+
   @media print {
     .nav-wrap, .hero-actions, .actions-bar, .toast, .btn-map,
     .btn-copy, .btn-copy2, .btn-print, .card-actions, .day-tabs { display: none !important; }
+    .menu-slider .slide-btn, .slide-dots { display: none !important; }
+    .menu-slides { display: block !important; }
+    .menu-slide { min-width: 100% !important; page-break-inside: avoid; }
     .day-panel { display: block !important; }
     .card-body { display: block !important; }
     body { background: #fff; }
@@ -530,37 +574,30 @@
             <div class="card-meta">
               <div class="card-time">12:00 – 14:00 ・午餐</div>
               <div class="card-name">午餐（埔里）</div>
-              <div class="card-loc">📍 土角厝水上庭園餐廳</div>
-              <div class="card-tags"><span class="tag">素食有套餐</span><span class="tag gray">建議預訂</span></div>
+              <div class="card-loc">📍 埔里女兒紅餐廳</div>
             </div>
             <div class="chevron">▼</div>
           </div>
           <div class="card-body">
-            <div class="detail-grid">
-              <div class="detail-item"><div class="detail-label">素食</div><div class="detail-val">✅ 有素食套餐</div></div>
-              <div class="detail-item"><div class="detail-label">預算</div><div class="detail-val">尚未確認，建議先詢問</div></div>
-            </div>
             <div class="img-wrap">
               <div class="img-placeholder"><div class="ph-icon">🍽</div><div class="ph-text">待補官方照片</div></div>
             </div>
             <div class="img-credit">圖片來源：尚未放入正式圖片</div>
             <div class="card-actions">
-              <a class="btn btn-map" href="https://maps.app.goo.gl/XXxiw5LNFMW88T686" target="_blank" rel="noopener">📍 Google Maps 導航</a>
+              <a class="btn btn-map" href="https://www.google.com/maps/search/?api=1&query=埔里女兒紅餐廳" target="_blank" rel="noopener">📍 Google Maps 搜尋</a>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- D1 Option group -->
-      <div class="option-group">
-        <div class="option-label">⚡ 下午備案，擇一前往</div>
-
-        <!-- Option A: 埔里酒廠 -->
+      <!-- D1-S3: 埔里酒廠 -->
+      <div class="stop">
+        <div class="stop-dot">🍶</div>
         <div class="card" id="d1c3a">
           <div class="card-head" onclick="toggle('d1c3a')">
             <div class="card-icon">🍶</div>
             <div class="card-meta">
-              <div class="card-time">下午景點 ・選項 A</div>
+              <div class="card-time">下午景點</div>
               <div class="card-name">埔里酒廠</div>
               <div class="card-loc">📍 台灣菸酒股份有限公司埔里酒廠</div>
               <div class="card-tags"><span class="tag sky">觀光酒廠</span><span class="tag gray">室內冷氣</span></div>
@@ -578,33 +615,6 @@
             <div class="img-credit">圖片來源：尚未放入正式圖片</div>
             <div class="card-actions">
               <a class="btn btn-map" href="https://www.google.com/maps/search/?api=1&query=埔里酒廠" target="_blank" rel="noopener">📍 Google Maps 搜尋</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Option B: 蜜蜂小森林 -->
-        <div class="card" id="d1c3b">
-          <div class="card-head" onclick="toggle('d1c3b')">
-            <div class="card-icon">🐝</div>
-            <div class="card-meta">
-              <div class="card-time">下午景點 ・選項 B</div>
-              <div class="card-name">賴爺爺蜜蜂小森林</div>
-              <div class="card-loc">📍 賴爺爺蜜蜂小森林（南投縣）</div>
-              <div class="card-tags"><span class="tag sky">觀光工廠</span><span class="tag gray">親子友善</span></div>
-            </div>
-            <div class="chevron">▼</div>
-          </div>
-          <div class="card-body">
-            <div class="detail-grid">
-              <div class="detail-item"><div class="detail-label">類型</div><div class="detail-val">蜜蜂主題觀光工廠</div></div>
-              <div class="detail-item"><div class="detail-label">適合</div><div class="detail-val">親子、長輩</div></div>
-            </div>
-            <div class="img-wrap">
-              <div class="img-placeholder"><div class="ph-icon">🐝</div><div class="ph-text">待補官方照片</div></div>
-            </div>
-            <div class="img-credit">圖片來源：尚未放入正式圖片</div>
-            <div class="card-actions">
-              <a class="btn btn-map" href="https://www.google.com/maps/search/?api=1&query=賴爺爺蜜蜂小森林" target="_blank" rel="noopener">📍 Google Maps 搜尋</a>
             </div>
           </div>
         </div>
@@ -693,10 +703,6 @@
               <div class="detail-item"><div class="detail-label">形式</div><div class="detail-val">回民宿烤肉 或 外送</div></div>
               <div class="detail-item"><div class="detail-label">地點</div><div class="detail-val">湖心庭民宿</div></div>
             </div>
-            <div class="note-box">
-              <strong>📝 待確認</strong>
-              烤肉食材誰負責採購？外送備案餐廳？素食者的餐點？
-            </div>
           </div>
         </div>
       </div>
@@ -730,11 +736,7 @@
           <div class="card-body">
             <div class="detail-grid">
               <div class="detail-item"><div class="detail-label">訂購方式</div><div class="detail-val">LINE 預訂，現場自取</div></div>
-              <div class="detail-item"><div class="detail-label">注意</div><div class="detail-val">假日無外送，需自行前往</div></div>
-            </div>
-            <div class="note-box">
-              <strong>📝 提醒</strong>
-              假日沒有外送，建議前一晚先用 LINE 預訂好，隔天早上去現場拿。
+              <div class="detail-item"><div class="detail-label">注意</div><div class="detail-val">假日無外送，派車前往領取回民宿</div></div>
             </div>
             <div class="img-wrap">
               <div class="img-placeholder"><div class="ph-icon">🥢</div><div class="ph-text">待補官方照片</div></div>
@@ -763,8 +765,7 @@
           </div>
           <div class="card-body">
             <div class="detail-grid">
-              <div class="detail-item"><div class="detail-label">活動</div><div class="detail-val">賞日月潭風景、喝抹茶</div></div>
-              <div class="detail-item"><div class="detail-label">旅遊心得</div><div class="detail-val">待補旅遊心得</div></div>
+              <div class="detail-item"><div class="detail-label">活動</div><div class="detail-val">賞日月潭風景、喝抹茶、騎自行車</div></div>
             </div>
             <div class="img-wrap">
               <div class="img-placeholder"><div class="ph-icon">🏞</div><div class="ph-text">待補官方照片</div><div style="font-size:12px;color:var(--muted);margin-top:4px;">建議至日月潭國家風景區官網取用</div></div>
@@ -882,6 +883,37 @@
               <strong>🎉 家族晚會提醒</strong>
               可以安排簡單的家族活動，例如桌遊、照片分享等。外送請提早下單，確認素食人數與份量。
             </div>
+
+            <!-- 菜單輪播 -->
+            <div class="menu-label">📋 菜單</div>
+            <div class="menu-slider" id="menuSlider">
+              <div class="menu-slides" id="menuSlides">
+                <div class="menu-slide">
+                  <img src="images/jays_pizza_menu_1.jpg" alt="Jay's Pizza 菜單第1頁"
+                    onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                  <div class="slide-ph" style="display:none">
+                    <div class="ph-icon">🍕</div>
+                    <div class="ph-text">菜單第 1 頁<br><span style="font-size:11px;margin-top:4px;display:block;">請上傳 images/jays_pizza_menu_1.jpg</span></div>
+                  </div>
+                </div>
+                <div class="menu-slide">
+                  <img src="images/jays_pizza_menu_2.jpg" alt="Jay's Pizza 菜單第2頁"
+                    onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                  <div class="slide-ph" style="display:none">
+                    <div class="ph-icon">🍕</div>
+                    <div class="ph-text">菜單第 2 頁<br><span style="font-size:11px;margin-top:4px;display:block;">請上傳 images/jays_pizza_menu_2.jpg</span></div>
+                  </div>
+                </div>
+              </div>
+              <button class="slide-btn slide-prev" onclick="slideMenu(-1)">‹</button>
+              <button class="slide-btn slide-next" onclick="slideMenu(1)">›</button>
+              <div class="slide-dots">
+                <span class="slide-dot active" onclick="goSlide(0)"></span>
+                <span class="slide-dot" onclick="goSlide(1)"></span>
+              </div>
+            </div>
+            <div class="img-credit">菜單圖片：請上傳後替換 images/ 資料夾中的檔案</div>
+
             <div class="card-actions">
               <a class="btn btn-map" href="https://maps.app.goo.gl/Cort5HBUDk5kTbi4A" target="_blank" rel="noopener">📍 Jay's Pizza Google Maps</a>
             </div>
@@ -1148,6 +1180,25 @@
     } catch {
       showToast('請手動複製（此環境不支援自動複製）');
     }
+  }
+
+  // Menu slider
+  let menuIndex = 0;
+  const menuTotal = 2;
+  function slideMenu(dir) {
+    menuIndex = (menuIndex + dir + menuTotal) % menuTotal;
+    updateSlider();
+  }
+  function goSlide(i) {
+    menuIndex = i;
+    updateSlider();
+  }
+  function updateSlider() {
+    const slides = document.getElementById('menuSlides');
+    if (slides) slides.style.transform = `translateX(-${menuIndex * 100}%)`;
+    document.querySelectorAll('.slide-dot').forEach((d, i) => {
+      d.classList.toggle('active', i === menuIndex);
+    });
   }
 
   // Active nav on scroll
