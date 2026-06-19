@@ -288,13 +288,12 @@
 
 <!-- HERO -->
 <header class="hero">
-  <div class="hero-tag">🗓 家族旅遊・兩天行程</div>
+  <div class="hero-tag">🗓 家族旅遊・三天行程</div>
   <h1>家族旅遊行程</h1>
   <p>埔里・日月潭・溫泉小旅行</p>
   <div class="hero-actions">
     <button class="btn btn-primary" onclick="document.getElementById('overview').scrollIntoView({behavior:'smooth'})">📋 查看行程</button>
     <button class="btn btn-ghost" onclick="window.print()">🖨 列印 / 存PDF</button>
-    <button class="btn btn-ghost" onclick="copyDay1()">💬 Day 1 傳 LINE</button>
   </div>
 </header>
 
@@ -304,6 +303,7 @@
     <a href="#overview">行程總覽</a>
     <a href="#day1">第一天</a>
     <a href="#day2">第二天</a>
+    <a href="#day3">第三天</a>
     <a href="#places">地圖導航</a>
     <a href="#links">景點連結</a>
   </nav>
@@ -317,6 +317,7 @@
     <div class="day-tabs">
       <button class="day-tab active" onclick="switchDay('d1-summary')">📅 第一天</button>
       <button class="day-tab" onclick="switchDay('d2-summary')">📅 第二天</button>
+      <button class="day-tab" onclick="switchDay('d3-summary')">📅 第三天</button>
     </div>
 
     <div id="d1-summary" class="day-panel active">
@@ -373,6 +374,27 @@
         <div class="summary-row">
           <div class="summary-time">18:00–</div>
           <div><div class="summary-name">🍕 晚餐 & 家族晚會</div><div class="summary-sub">Jay's Pizza 外送｜民宿 9 折・素食選項多</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="d3-summary" class="day-panel">
+      <div class="summary-card">
+        <div class="summary-row">
+          <div class="summary-time">早餐</div>
+          <div><div class="summary-name">🥢 埔里鹹油條</div><div class="summary-sub">老味道早餐，再吃一次</div></div>
+        </div>
+        <div class="summary-row">
+          <div class="summary-time">11:00</div>
+          <div><div class="summary-name">🧳 退房</div><div class="summary-sub">湖心庭民宿 Check out</div></div>
+        </div>
+        <div class="summary-row">
+          <div class="summary-time">12:00–14:00</div>
+          <div><div class="summary-name">🍽 午餐（埔里）</div><div class="summary-sub">土角厝餐廳</div></div>
+        </div>
+        <div class="summary-row">
+          <div class="summary-time">下午</div>
+          <div><div class="summary-name">🏠 賦歸</div><div class="summary-sub">帶著滿滿回憶踏上歸途</div></div>
         </div>
       </div>
     </div>
@@ -692,7 +714,109 @@
     </div>
   </section>
 
-  <!-- ══ PLACES ══ -->
+  <!-- ══ DAY 3 ══ -->
+  <section id="day3">
+    <div class="sec-head"><span class="dot"></span><h2>第三天詳細行程</h2></div>
+    <div class="timeline">
+
+      <div class="stop">
+        <div class="stop-dot meal">🥢</div>
+        <div class="card" id="d3c1">
+          <div class="card-head">
+            <div class="card-icon">🥢</div>
+            <div class="card-meta">
+              <div class="card-time">早餐 ・出發前自取</div>
+              <div class="card-name">埔里鹹油條</div>
+              <div class="card-loc">📍 埔里鹹油條</div>
+              <div class="card-tags"><span class="tag">早餐</span><span class="tag gray">LINE 預訂自取</span></div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="detail-grid">
+              <div class="detail-item"><div class="detail-label">訂購方式</div><div class="detail-val">LINE 預訂，現場自取</div></div>
+              <div class="detail-item"><div class="detail-label">注意</div><div class="detail-val">假日無外送，派車前往領取回民宿</div></div>
+            </div>
+            <div class="card-actions">
+              <a class="btn btn-map" href="https://maps.app.goo.gl/eJBgNJGHvFmrkJ2v9" target="_blank" rel="noopener">📍 Google Maps 導航</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="stop">
+        <div class="stop-dot stay">🧳</div>
+        <div class="card" id="d3c2">
+          <div class="card-head">
+            <div class="card-icon">🧳</div>
+            <div class="card-meta">
+              <div class="card-time">11:00 ・退房</div>
+              <div class="card-name">湖心庭民宿 Check out</div>
+              <div class="card-loc">📍 湖心庭民宿（日月潭）</div>
+              <div class="card-tags"><span class="tag teal">退房</span></div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="detail-grid">
+              <div class="detail-item"><div class="detail-label">退房時間</div><div class="detail-val">11:00 前</div></div>
+              <div class="detail-item"><div class="detail-label">提醒</div><div class="detail-val">提早整理行李，準時退房</div></div>
+            </div>
+            <div class="card-actions">
+              <a class="btn btn-map" href="https://maps.app.goo.gl/y4dQnSvxCgsTRwi6" target="_blank" rel="noopener">📍 Google Maps 導航</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="stop">
+        <div class="stop-dot meal">🍽</div>
+        <div class="card" id="d3c3">
+          <div class="card-head">
+            <div class="card-icon">🍽</div>
+            <div class="card-meta">
+              <div class="card-time">12:00 – 14:00 ・午餐</div>
+              <div class="card-name">午餐（埔里）</div>
+              <div class="card-loc">📍 土角厝餐廳</div>
+              <div class="card-tags"><span class="tag">午餐</span><span class="tag gray">埔里在地特色</span></div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="detail-grid">
+              <div class="detail-item"><div class="detail-label">餐廳</div><div class="detail-val">土角厝餐廳</div></div>
+              <div class="detail-item"><div class="detail-label">位置</div><div class="detail-val">埔里市區</div></div>
+            </div>
+            <div class="card-actions">
+              <a class="btn btn-map" href="https://maps.app.goo.gl/5wBqGL2smR1p88f6A" target="_blank" rel="noopener">📍 Google Maps 導航</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="stop">
+        <div class="stop-dot">🏠</div>
+        <div class="card" id="d3c4">
+          <div class="card-head">
+            <div class="card-icon">🏠</div>
+            <div class="card-meta">
+              <div class="card-time">下午 ・賦歸</div>
+              <div class="card-name">賦歸</div>
+              <div class="card-loc">帶著滿滿回憶踏上歸途</div>
+              <div class="card-tags"><span class="tag teal">旅程圓滿</span><span class="tag gray">平安回家</span></div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="note-box">
+              <strong>🌅 旅途結語</strong>
+              三天兩夜的埔里・日月潭家族小旅行，感謝大家一起走過這段時光。願每一段記憶都溫暖長久，期待下次再相聚 🤍
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div style="text-align:center;padding:8px 0 24px;">
+      <button class="btn btn-copy" style="background:var(--accent2);" onclick="copyDay3()">💬 複製第三天摘要給 LINE</button>
+    </div>
+  </section>
   <section id="places">
     <div class="sec-head"><span class="dot"></span><h2>地圖導航</h2></div>
     <div class="place-list">
@@ -742,6 +866,16 @@
       <div class="place-row">
         <div class="place-row-info"><h3>🍕 Jay's Pizza</h3><p>晚餐外送 ・ 民宿 9 折</p></div>
         <a class="btn btn-map" href="https://maps.app.goo.gl/Cort5HBUDk5kTbi4A" target="_blank" rel="noopener">📍 導航</a>
+      </div>
+
+      <div class="place-section-label">📅 第三天</div>
+      <div class="place-row">
+        <div class="place-row-info"><h3>🥢 埔里鹹油條</h3><p>早餐 ・ 出發前自取</p></div>
+        <a class="btn btn-map" href="https://maps.app.goo.gl/eJBgNJGHvFmrkJ2v9" target="_blank" rel="noopener">📍 導航</a>
+      </div>
+      <div class="place-row">
+        <div class="place-row-info"><h3>🍽 土角厝餐廳</h3><p>午餐 ・ 11:00 退房後前往</p></div>
+        <a class="btn btn-map" href="https://maps.app.goo.gl/5wBqGL2smR1p88f6A" target="_blank" rel="noopener">📍 導航</a>
       </div>
     </div>
   </section>
@@ -811,6 +945,16 @@
         </div>
         <a class="btn-link" href="https://www.solstice.com.tw/" target="_blank" rel="noopener">🔗 官網</a>
       </div>
+
+      <div class="links-section-label">📅 第三天</div>
+
+      <div class="link-row">
+        <div class="link-info">
+          <div class="link-name">🍽 土角厝餐廳</div>
+          <div class="link-desc">Google Maps ・ 埔里在地特色餐廳</div>
+        </div>
+        <a class="btn-link" href="https://maps.app.goo.gl/5wBqGL2smR1p88f6A" target="_blank" rel="noopener">📍 地圖</a>
+      </div>
     </div>
   </section>
 
@@ -820,13 +964,14 @@
 <div class="actions-bar">
   <button class="btn btn-copy" onclick="copyDay1()">💬 第一天傳 LINE</button>
   <button class="btn btn-copy2" onclick="copyDay2()">💬 第二天傳 LINE</button>
+  <button class="btn btn-copy" style="background:var(--accent2);" onclick="copyDay3()">💬 第三天傳 LINE</button>
   <button class="btn btn-print" onclick="window.print()">🖨 列印 / 存 PDF</button>
   <button class="btn" style="background:var(--accent2);color:#fff;" onclick="expandAll()">📖 展開全部細節</button>
 </div>
 
 <div class="footer">
   家族旅遊行程 ・ 埔里・日月潭・溫泉小旅行<br>
-  <span style="font-size:12px;">Day 1 ✅ &nbsp; Day 2 ✅ &nbsp; Day 3 即將加入</span>
+  <span style="font-size:12px;">Day 1 ✅ &nbsp; Day 2 ✅ &nbsp; Day 3 ✅</span>
 </div>
 
 <div class="toast" id="toast"></div>
@@ -863,7 +1008,12 @@
     try { await navigator.clipboard.writeText(text); showToast('✅ 第二天行程已複製！可貼到 LINE'); }
     catch { showToast('請手動複製（此環境不支援自動複製）'); }
   }
-  const sectionIds = ['overview','day1','day2','places','links'];
+  async function copyDay3() {
+    const text = `🗓 家族旅遊 第三天行程\n埔里・日月潭・溫泉小旅行\n\n🥢 早餐 埔里鹹油條（LINE 預訂，派車自取）\n\n🧳 11:00 退房\n   → 湖心庭民宿 Check out\n\n🍽 12:00–14:00 午餐\n   → 土角厝餐廳（埔里）\n\n🏠 下午 賦歸\n   → 帶著滿滿回憶踏上歸途，一路平安！`;
+    try { await navigator.clipboard.writeText(text); showToast('✅ 第三天行程已複製！可貼到 LINE'); }
+    catch { showToast('請手動複製（此環境不支援自動複製）'); }
+  }
+  const sectionIds = ['overview','day1','day2','day3','places','links'];
   const navLinks = document.querySelectorAll('.nav a');
   window.addEventListener('scroll', () => {
     let current = '';
